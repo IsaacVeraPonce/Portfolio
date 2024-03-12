@@ -1,0 +1,17 @@
+{
+	"name": "portfolio",
+	"version": "1.0.0",
+	"description": "El portafolio de Isaac Vera Ponce",
+	"main": "index.js",
+	"scripts": {
+		"test": "node index.js"
+	},
+	"keywords": [],
+	"author": "Isaac Vera Ponce",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.3",
+		"mysql2": "^3.9.2",
+		"socket.io": "^4.7.4"
+	}
+}

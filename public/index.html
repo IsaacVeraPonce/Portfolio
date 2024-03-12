@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Portafolio Isaac Vera Ponce</title>
+		<link rel="stylesheet" href="/public/css/styles.css" />
+
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏻‍💻</text></svg>"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link href="https://fonts.googleapis.com/css?family=Raleway:100,200,400,600" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- Navbar -->
+			<!-- Cabecera -->
+			<header class="header">
+				<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+					<div class="container">
+						<a class="navbar-brand" href="#">Mi Portafolio</a>
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#navbarNav"
+							aria-controls="navbarNav"
+							aria-expanded="false"
+							aria-label="Toggle navigation"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav ms-auto">
+								<li class="nav-item">
+									<a class="nav-link" href="#experiencia">Experiencia</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#habilidades">Habilidades</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#contacto">Contacto</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<div id="navbarContainer" @click="openCloseMenu">
+					<div id="navbarBall"></div>
+					<div id="navbarOptions">
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+								<a class="nav-link" href="#experiencia">Experiencia</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#habilidades">Habilidades</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#contacto">Contacto</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="overlay"></div>
+				<div class="container h-100">
+					<div class="row h-100 align-items-center">
+						<div class="col-lg-12 text-center">
+							<h1 class="display-4 text-white">{{awesomeText1}}</h1>
+							<p class="lead text-white mb-0">Ingeniero de Software</p>
+						</div>
+					</div>
+				</div>
+				<button id="scrollDownButton" class="scroll-down-button" @click="scrollDown">
+					<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+						<path
+							d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+						/>
+					</svg>
+				</button>
+			</header>
+
+			<!-- Sección de habilidades -->
+			<section id="habilidades" class="habilidades-section">
+				<div class="container">
+					<div class="row">
+						<h1>SKILLS</h1>
+						<div class="block"></div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+							<h5 class="text-center">Frameworks y Bibliotecas</h5>
+							<canvas id="grafica2" class="grafica"></canvas>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+							<h5 class="text-center">Lenguajes de Programación</h5>
+							<canvas id="grafica3" class="grafica"></canvas>
+						</div>
+					</div>
+
+					<div class="row justify-content-center">
+						<!-- Tercer nivel -->
+						<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+							<h5 class="text-center">Bases de Datos</h5>
+							<canvas id="grafica4" class="grafica"></canvas>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+							<h6 class="text-center">Herramientas y Tecnologías</h6>
+							<canvas id="grafica5" class="grafica"></canvas>
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+							<h6 class="text-center">Metodologías y Prácticas de Desarrollo</h6>
+							<canvas id="grafica6" class="grafica"></canvas>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="experiencia" class="experiencia">
+				<div class="container">
+					<div class="row align-items-center">
+						<div v-for="job in experiencia" :key="job.id" class="col-lg-6 col-md-6 col-sm-6 mb-4">
+							<h3><img :src="job.icono" class="img-fluid" />{{job.empresa}}l</h3>
+							<p><strong>{{ job.puesto }}</strong></p>
+							<p>{{ job.fecha }}</p>
+							<p>{{ job.descripcion }}</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="contacto">
+				<div class="container">
+					<h1>Contacto</h1>
+					<div class="block"></div>
+					<form @submit.prevent="saveForm">
+						<div class="row">
+							<div class="col-6">
+								<label for="exampleRecipientInput" class="form-label">Nombre</label>
+								<input class="form-control" type="text" required />
+							</div>
+							<div class="col-6">
+								<label for="exampleEmailInput" class="form-label">Email</label>
+								<input class="form-control" type="email" required />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<label for="exampleMessage" class="form-label">Mensaje</label>
+								<textarea class="form-control u-full-width" required></textarea>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-2">
+								<input class="btn btn-info" type="submit" value="Enviar" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-9">
+							<div class="container">
+								<div class="row">
+									<p>Creada por Isaac Vera Ponce</p>
+								</div>
+								<div class="row">
+									<p>Phone: {{ telefono }}</p>
+								</div>
+								<div class="row">
+									<p>{{ ubicacion }}</p>
+								</div>
+								<div class="row">
+									<p>Email: {{ email }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-3">
+							<span class="typcn typcn-social-facebook-circular socialIcons"></span>
+							<span class="typcn typcn-social-instagram-circular socialIcons"></span>
+							<span class="typcn typcn-social-google-plus-circular socialIcons"></span>
+							<span class="typcn typcn-social-linkedin-circular socialIcons"></span>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script>
+			const app = Vue.createApp({
+				data() {
+					return {
+						experiencia: [
+							{
+								id: 1,
+								empresa: 'Fast Admin S.A de C.V',
+								puesto: 'Ingeniero de software',
+								fecha: 'Marzo 09, 2019–Actual',
+								icono: '/public/images/facturamax.png',
+								descripcion:
+									'Desarrollador principal, tester, control de calidad y líder de proyecto de la página web Facturamax.com y su aplicación móvil. Todo el sistema se realizó con NodeJS, Vue, Electron, SQL con Rocks DB, Redux, AWS, Azure, Python, Java, Kotlin, entre otros y recientemente se añadieron tecnologías de inteligencia artificial para el soporte al cliente con Python y librerías de análisis de datos con R.',
+							},
+							{
+								id: 2,
+								empresa: 'CelsTV',
+								puesto: 'Full Stack Developer & Soporte Técnico',
+								fecha: 'Enero 11 2022 – noviembre 15 2022',
+								icono: '/public/images/celstv.jpg',
+
+								descripcion:
+									'Desarrollé un sitio web de streaming para un aula virtual de inglés con PHP, HTML, CSS, JS, Joomla entre otros; también brindé soporte técnico al sitio cuando fue necesario. También configuré y preparé los servidores para alojar el sitio web configurando DNS, SSL y recursos.',
+							},
+							{
+								id: 3,
+								empresa: 'Centro Vida Estetic SOL (Lima-Perú)',
+								puesto: 'Full Stack Developer',
+								fecha: 'Enero 05, 2023 - marzo 01, 2023',
+								icono: '/public/images/cvesol.jpg',
+
+								descripcion:
+									'Planificación, gestión y desarrollo del sistema estético para la recepción de clientes con un formulario donde se crean automáticamente perfiles para la gestión de administradores del sistema, construido con Vue 3, Node.js y tecnologías web alojadas en un servidor AWS.',
+							},
+							{
+								id: 4,
+								empresa: 'Grupo San Cristobal / Plug-In-Solutions',
+								puesto: 'Full Stack Developer & Soporte Técnico',
+								fecha: 'Agosto 09 2017 – octubre 03 2017',
+								icono: '/public/images/gsc.png',
+
+								descripcion:
+									'Desarrollé, probé e implementé un sistema automatizado de facturación desde cero en .NET, JS, HTML, CSS, VUE y Microsoft SQL. También me encargué del mantenimiento de todos los equipos informáticos de la empresa y ocasionalmente ocupé el puesto de gerente de sistemas.',
+							},
+
+							// Agrega el resto de tus experiencias laborales aquí
+						],
+
+						telefono: '449-118-2354',
+						ubicacion: 'Aguascalientes, Ags. México.',
+						email: 'ivera.bts@gmail.com',
+						awesomeText1: '',
+					};
+				},
+				mounted() {
+					this.writeHeader('¡Hola! Soy Isaac Vera');
+					this.renderChart();
+					var navbarContainer = document.getElementById('navbarContainer');
+					navbarContainer.style.display = 'none';
+					window.addEventListener('scroll', function () {
+						// Obtener la posición vertical actual del scroll
+						var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+						// Determinar si el navbar está fuera de la pantalla
+						if (scrollPosition > 100) {
+							// Puedes ajustar este valor según tus necesidades
+							navbarContainer.style.display = 'block';
+						} else {
+							navbarContainer.style.display = 'none';
+						}
+					});
+				},
+				methods: {
+					openCloseMenu() {
+						var navbarOptions = document.getElementById('navbarOptions');
+						if (navbarOptions.style.display !== 'block') {
+							navbarOptions.style.display = 'block';
+						} else {
+							navbarOptions.style.display = 'none';
+						}
+					},
+					scrollDown() {
+						let habilidadesSection = document.getElementById('habilidades');
+						habilidadesSection.scrollIntoView({ behavior: 'smooth' });
+					},
+					saveForm() {},
+					writeHeader(texto) {
+						let letras = texto.split('');
+						let i = 0;
+						let intervalo = setInterval(() => {
+							if (i < letras.length) {
+								// Agregamos la letra actual al contenido de la h1
+								this.awesomeText1 += letras[i];
+								// Incrementamos el contador para pasar a la siguiente letra
+								i++;
+							} else clearInterval(intervalo);
+						}, 200);
+					},
+					renderChart() {
+						const ctx = document.getElementById('grafica6').getContext('2d');
+						const ctx2 = document.getElementById('grafica2').getContext('2d');
+						const ctx3 = document.getElementById('grafica3').getContext('2d');
+						const ctx4 = document.getElementById('grafica4').getContext('2d');
+						const ctx5 = document.getElementById('grafica5').getContext('2d');
+
+						const lenguajesDeProgramacion = {
+							labels: ['Java', 'Python', 'JavaScript', 'C#', 'C++', 'Kotlin', 'TypeScript', 'SQL', 'HTML/CSS'],
+							datasets: [
+								{
+									label: 'Lenguajes de programacion',
+									data: [8, 8, 10, 8, 8, 6, 10, 10, 10],
+									backgroundColor: ['#FFB6C1', '#ADD8E6', '#FFDAB9', '#98FB98', '#FFA07A', '#FFDEAD', '#87CEFA', '#FF69B4', '#00CED1'],
+								},
+							],
+						};
+
+						const frameworksYBibliotecas = {
+							labels: [
+								'Spring Framework',
+								'Django',
+								'React',
+								'Angular',
+								'Vue.js',
+
+								'Electron',
+								'Node.js',
+								'.NET Framework',
+								'ASP.NET',
+								'Bootstrap',
+								'Arduino IDE',
+							],
+							datasets: [
+								{
+									label: 'Frameworks y Bibliotecas',
+									data: [8, 8, 8, 8, 10, 10, 10, 8, 8, 10, 10],
+									backgroundColor: [
+										'#FFB6C1',
+										'#ADD8E6',
+										'#FFDAB9',
+										'#98FB98',
+										'#FFA07A',
+										'#F0E68C',
+										'#FFC0CB',
+										'#FFDEAD',
+										'#87CEFA',
+										'#FF69B4',
+										'#00CED1',
+									],
+								},
+							],
+						};
+
+						const basesDeDatos = {
+							labels: ['MySQL', 'PostgreSQL', 'Oracle', 'SQL Server', 'MongoDB', 'Redis', 'SQLite', 'Firebase', 'MariaDB', 'RocksDB'],
+							datasets: [
+								{
+									label: 'Bases de Datos',
+									data: [10, 8, 6, 10, 8, 8, 10, 8, 10, 10],
+									backgroundColor: ['#FFB6C1', '#ADD8E6', '#FFDAB9', '#98FB98', '#FFA07A', '#E0FFFF', '#F0E68C', '#FFC0CB', '#FFDEAD', '#87CEFA'],
+								},
+							],
+						};
+
+						const herramientasYTecnologias = {
+							labels: [
+								'Git',
+								'SVN',
+								'Docker',
+								'Kubernetes',
+								'Docker',
+								'AWS (Amazon Web Services)',
+								'Azure',
+								'Google Cloud Platform (GCP)',
+								'Kamatera',
+								'Apache',
+								'SOAP',
+								'RESTful APIs',
+								'GraphQL',
+								'WebSocket',
+							],
+							datasets: [
+								{
+									label: 'Herramientas y Tecnologías',
+									data: [8, 10, 8, 6, 10, 10, 8, 10, 10, 10, 10, 10, 5, 10],
+									backgroundColor: [
+										'#FFB6C1',
+										'#ADD8E6',
+										'#FFDAB9',
+										'#98FB98',
+										'#FFA07A',
+										'#E0FFFF',
+										'#F0E68C',
+										'#FFC0CB',
+										'#FFDEAD',
+
+										'#FF69B4',
+										'#00CED1',
+										'#D3D3D3',
+										'#FF6347',
+										'#778899',
+										'#FFFF00',
+									],
+								},
+							],
+						};
+
+						const metodologiasYPracticas = {
+							labels: [
+								'Agile',
+								'Scrum',
+								'MVC',
+								'DevOps',
+								'Continuous Integration (CI)',
+								'Continuous Deployment (CD)',
+								'Design Patterns',
+								'Clean Code Principles',
+							],
+							datasets: [
+								{
+									label: 'Metodologías y Prácticas de Desarrollo',
+									data: [8, 10, 10, 5, 8, 8, 8, 10],
+									backgroundColor: ['#FFB6C1', '#ADD8E6', '#FFDAB9', '#98FB98', '#FFA07A', '#E0FFFF', '#F0E68C', '#FFC0CB'],
+								},
+							],
+						};
+
+						const tecnologiasChart = new Chart(ctx3, {
+							type: 'pie',
+							data: lenguajesDeProgramacion,
+						});
+						const tecnologiasChart2 = new Chart(ctx2, {
+							type: 'pie',
+							data: frameworksYBibliotecas,
+						});
+						const tecnologiasChart3 = new Chart(ctx4, {
+							type: 'pie',
+							data: basesDeDatos,
+						});
+						const tecnologiasChart4 = new Chart(ctx5, {
+							type: 'pie',
+							data: herramientasYTecnologias,
+						});
+						const tecnologiasChart5 = new Chart(ctx, {
+							type: 'pie',
+							data: metodologiasYPracticas,
+						});
+					},
+				},
+			});
+			app.mount('#app');
+		</script>
+	</body>
+</html>
